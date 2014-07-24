@@ -3,16 +3,16 @@
   "description": "Maten by steppo",
   "launch_path": "/mat.html",
   "icons": {
-    "256": "/weath256.png",
-    "128": "/weath128.png",
-    "120": "/weath120.png",
-    "90": "/weath90.png",
-    "60": "/weath60.png",
-    "32": "/weath32.png"
+    "256": "/mat256.png",
+    "128": "/mat128.png",
+    "120": "/mat120.png",
+    "90": "/mat90.png",
+    "60": "/mat60.png",
+    "32": "/mat32.png"
   },
   "developer": {
     "name": "Steppo",
-    "url": "http://tjorv.se/mat/"
+    "url": "http://tjorv.se/mat"
   },
   "default_locale": "en",
   "chrome": {
