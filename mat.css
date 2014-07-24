@@ -1,0 +1,24 @@
+#mainbtn {
+    width: 100%;
+    height: 30px;
+    margin: 3px;
+    font-size: 20px;
+}
+#navigbtn {
+    height: 22px;
+    margin: 5px;
+    font-size: 15px;
+}
+img {
+    display: block;
+    max-width:80px;
+    max-height:80px;
+    width: auto;
+    height: auto;
+}
+#header_left {
+	float: left;
+}
+#header_right {
+	float: right;
+}

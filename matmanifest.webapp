@@ -1,0 +1,25 @@
+{
+  "name": "Maten",
+  "description": "Maten by steppo",
+  "launch_path": "/mat.html",
+  "icons": {
+    "256": "/weath256.png",
+    "128": "/weath128.png",
+    "120": "/weath120.png",
+    "90": "/weath90.png",
+    "60": "/weath60.png",
+    "32": "/weath32.png"
+  },
+  "developer": {
+    "name": "Steppo",
+    "url": "http://tjorv.se/mat/"
+  },
+  "default_locale": "en",
+  "chrome": {
+    "navigation": true
+  },
+  "permissions": {
+      "systemXHR": {"description": "Required for certain web communications"}
+  },
+  "type": "privileged"
+}
