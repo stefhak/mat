@@ -4,6 +4,7 @@ var kommun = new Object();
 var skola = new Object();
 var days = ["Mån", "Tis", "Ons", "Tors", "Fre"];
 var meny;
+var backbutton;
 
 
 function clear () {
@@ -27,14 +28,14 @@ function clear () {
 function display_meny () {
   clear();
   console.log("skola vald");
-  //console.log("index " + this.province);
-  var btn=document.createElement("input");
-  btn.type = "button";
-  btn.value = "Skolor";
-  btn.id = "navigbtn";
-  btn.addEventListener("click", display_skolor);
-  document.getElementById("header_left").appendChild(btn);
+  backbutton = new Image();
+  backbutton.src = "back.png";
+  backbutton.addEventListener("click", display_skolor);
+  document.getElementById("header_left").appendChild(backbutton);
   var textnode = document.createTextNode(skola.name);
+  document.getElementById("header_center").appendChild(textnode);
+  document.getElementById("header_center").appendChild(document.createElement("br"));
+  textnode = document.createTextNode(kommun.name);
   document.getElementById("header_center").appendChild(textnode);
   document.getElementById("header_center").appendChild(document.createElement("br"));
   function reqListener () {
@@ -71,17 +72,13 @@ function skola_vald () {
 function display_skolor () {
   clear();
   console.log("kommun vald");
-  //console.log("index " + this.province);
-  var btn=document.createElement("input");
-  btn.type = "button";
-  btn.value = "Kommuner";
-  btn.id = "navigbtn";
-  btn.addEventListener("click", display_kommuner);
-  document.getElementById("header_left").appendChild(btn);
-  /*var textnode = document.createTextNode(kommun.name);
+  backbutton = new Image();
+  backbutton.src = "back.png";
+  backbutton.addEventListener("click", display_kommuner);
+  document.getElementById("header_left").appendChild(backbutton);
+  var textnode = document.createTextNode(kommun.name);
   document.getElementById("header_center").appendChild(textnode);
-  textnode = document.createTextNode("Välj skola");
-  document.getElementById("header_center").appendChild(textnode);*/
+  document.getElementById("header_center").appendChild(document.createElement("br"));
   var logo = new Image();
   logo.src = kommun.listOfSchools[0].logo_url;
   document.getElementById("header_right").appendChild(logo);
@@ -109,16 +106,16 @@ function kommun_vald () {
 function display_kommuner () {
   clear();
   console.log("län valt");
-  //console.log("index " + this.province);
-  var btn=document.createElement("input");
-  btn.type = "button";
-  btn.value = "Län";
-  btn.id = "navigbtn";
-  btn.addEventListener("click", display_lan);
-  document.getElementById("header_left").appendChild(btn);
-  var textnode = document.createTextNode("Län");
-  /*textnode = document.createTextNode("Välj kommun");
-  document.getElementById("header_center").appendChild(textnode);*/
+  backbutton = new Image();
+  backbutton.src = "back.png";
+  backbutton.addEventListener("click", display_lan);
+  document.getElementById("header_left").appendChild(backbutton);
+  var textnode = document.createTextNode(lan.name);
+  document.getElementById("header_center").appendChild(textnode);
+  document.getElementById("header_center").appendChild(document.createElement("br"));
+  var logo = new Image();
+  logo.src = "mat90.png";
+  document.getElementById("header_right").appendChild(logo);
   var anchor = document.getElementById("main");
   for (var index in lan.listOfKommuner) {
     console.log("another kommun");
@@ -141,8 +138,9 @@ function lan_valt () {
 }
 function display_lan () {
   clear();
-  /*var textnode = document.createTextNode("Välj län");
-  document.getElementById("header_center").appendChild(textnode);*/
+  var logo = new Image();
+  logo.src = "mat90.png";
+  document.getElementById("header_right").appendChild(logo);
   var anchor = document.getElementById("main");
   for (var index in resultat.provinces) {
     var node=document.createElement("LI");
@@ -156,7 +154,7 @@ function display_lan () {
     anchor.appendChild(node);
   }
 }
-function getjson () {
+function start () {
   function reqListener () {
     console.log("got response");
     console.log(this.responseText);
@@ -170,4 +168,4 @@ function getjson () {
   oReq.send();
 
 }
-window.addEventListener('load', getjson);
+window.addEventListener('load', start);
