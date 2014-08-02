@@ -27,6 +27,7 @@ function clear () {
       anchor.removeChild(anchor.firstChild);
   }
 }
+/* section to be added back - and buttons removed - when 'touchend' event fires correctly on real device
 function touchStart (e) {
   console.log("x-pos: " + e.touches[0].pageX + " y-pos: " + e.touches[0].pageY);
   startPos = e;
@@ -55,6 +56,19 @@ function detectSwipe () {
   var touchzone = document.getElementById("main");
   touchzone.addEventListener("touchstart", touchStart, false);
   touchzone.addEventListener("touchend", touchEnd, false);
+}*/
+
+function senare_vecka () {
+  if (weekIx < 4) {
+    weekIx++;
+    display_meny(weekIx);
+  }
+}
+function tidigare_vecka () {
+  if (weekIx > 0) {
+    weekIx--;
+    display_meny(weekIx);
+  }
 }
 
 function display_meny_page () {
@@ -106,6 +120,19 @@ function display_meny_page () {
     cell.className = "day_meal_cell";
     row.appendChild(cell);
   });
+  var btn=document.createElement("input");
+  btn.type = "button";
+  btn.value = "tidigare";
+  btn.id = "tidigarebtn";
+  btn.addEventListener("click", tidigare_vecka);
+  document.getElementById("main").appendChild(btn);
+  btn=document.createElement("input");
+  btn.type = "button";
+  btn.value = "senare";
+  btn.id = "senarebtn";
+  btn.addEventListener("click", senare_vecka);
+  document.getElementById("main").appendChild(btn);
+
 }
 function display_meny (weekIndex) {
   if (weekIndex == 2) {
@@ -126,6 +153,10 @@ function display_meny (weekIndex) {
      document.getElementById(days[i] + "meal").innerHTML = meny.weeks[weekIndex].days[i].reason;
     }
   }
+  document.getElementById("senarebtn").enabled = true;
+  document.getElementById("tidigarebtn").enabled = true; 
+  if (weekIndex == 0) document.getElementById("tidigarebtn").enabled = false; 
+  if (weekIndex == 4) document.getElementById("senarebtn").enabled = false; 
 }
 function skola_vald () {
   skola = kommun.listOfSchools[this.skola];
@@ -136,7 +167,7 @@ function skola_vald () {
     console.log(this.responseText);
     meny = JSON.parse(this.responseText);
     display_meny(weekIx);
-    detectSwipe();
+    //detectSwipe(); to be added back - and buttons removed - when 'touchend' event fires correctly on real device
   }
   console.log("got to get matsedel");
   var oReq = new XMLHttpRequest({mozSystem: true});
