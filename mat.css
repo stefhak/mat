@@ -7,18 +7,41 @@
 
 #main {
     margin-top: 95px;
+    width: 100%;
     
 }
 body {
     background-color: #99CCFF;
 
 }
+
 img {
     display: block;
     max-width:80px;
     max-height:80px;
     width: auto;
     height: auto;
+}
+p {
+    margin: 0px 0px 0px 0px;
+}
+.day_date_day {
+    font-size: 20px;
+}
+.day_date_date {
+    font-size: 9px;
+}
+.day_date_cell {
+    width: 80px;
+}
+tr td {
+    border-top: 2px solid grey;
+    vertical-align: top;
+    margin: 0px;
+}
+.day_meal_cell {
+    font-size: 11px;
+    width: 100%;
 }
 #header {
     position: fixed;
